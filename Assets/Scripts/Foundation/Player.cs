@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     int _shotCount = 0;
     int _life = 10;
 
+    [SerializeField] string name = "";
+
     BulletBase _bullet;
 
     public int Life => _life;
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
     public void AssignBullet(BulletBase bullet)
     {
         _bullet = bullet;
+        name = bullet.GetType().ToString();
     }
 
     public void Damage(int damage)

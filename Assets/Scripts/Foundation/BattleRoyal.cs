@@ -14,6 +14,13 @@ public class BattleRoyal : MonoBehaviour
     [SerializeField] Cinemachine.CinemachineTargetGroup _targetGroup;
     [SerializeField] List<BulletBase> _entry;
 
+    private void Awake()
+    {
+        //諸々設定
+        Application.targetFrameRate = 60;
+        Time.timeScale = 1.0f;
+    }
+
     public void Start()
     {
         int maxDiv = Mathf.Max(32, _entry.Count);

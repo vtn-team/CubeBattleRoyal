@@ -12,7 +12,7 @@ public class BattleRoyal : MonoBehaviour
 {
     [SerializeField] GameObject _playerBase;
     [SerializeField] Cinemachine.CinemachineTargetGroup _targetGroup;
-    [SerializeField] List<BulletBase> _entry;
+    [SerializeField] List<string> _entry;
 
     private void Awake()
     {
@@ -37,11 +37,11 @@ public class BattleRoyal : MonoBehaviour
 
             if (i < _entry.Count)
             {
-                player.AssignBullet(_entry[i]);
+                player.name = _entry[i];
             }
             else
             {
-                player.AssignBullet(new DefaultBullet());
+                player.name = "No Name";
             }
         }
     }

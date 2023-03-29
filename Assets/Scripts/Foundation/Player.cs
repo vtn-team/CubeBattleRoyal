@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] string name = "";
 
-    BulletBase _bullet;
+    BulletBase _bullet = new DefaultBullet();
 
     public int Life => _life;
 
@@ -47,12 +47,6 @@ public class Player : MonoBehaviour
         BulletBase script = cube.AddComponent(_bullet.GetType()) as BulletBase;
         cube.transform.position = this.transform.position + this.transform.forward * this.transform.localScale.z;
         script.Bang();
-    }
-
-    public void AssignBullet(BulletBase bullet)
-    {
-        _bullet = bullet;
-        name = bullet.GetType().ToString();
     }
 
     public void Damage(int damage)

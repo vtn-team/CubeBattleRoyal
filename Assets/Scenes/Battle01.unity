@@ -508,6 +508,8 @@ GameObject:
   m_Component:
   - component: {fileID: 646654673}
   - component: {fileID: 646654674}
+  - component: {fileID: 646654676}
+  - component: {fileID: 646654675}
   m_Layer: 0
   m_Name: MasterCtrl
   m_TagString: Untagged
@@ -547,6 +549,31 @@ MonoBehaviour:
   _targetGroup: {fileID: 1393116265}
   _entry:
   - {fileID: 928507732682194818, guid: 0a2a00984f811034187e30e5efb4532d, type: 3}
+--- !u!114 &646654675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646654672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1cbe0c459050740a023f9961fb9d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &646654676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646654672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686c2baad53b353408f473126e8bce87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checker: {fileID: 646654675}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

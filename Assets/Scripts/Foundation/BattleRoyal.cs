@@ -37,11 +37,11 @@ public class BattleRoyal : MonoBehaviour
 
             if (i < _entry.Count)
             {
-                player.AssignBullet(_entry[i]);
+                player.AssignBullet(_entry[i].GetType());
             }
             else
             {
-                player.AssignBullet(new DefaultBullet());
+                player.AssignBullet(typeof(DefaultBullet));
             }
         }
     }

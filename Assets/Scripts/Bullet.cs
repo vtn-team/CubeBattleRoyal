@@ -22,7 +22,7 @@ public class Bullet : BulletBase
         Vector3 after = this.transform.position;
 
         //テスト用に距離を出す
-        Debug.Log((after - before).magnitude);
+        //Debug.Log((after - before).magnitude);
     }
 
     void OnCollisionEnter(Collision collision)

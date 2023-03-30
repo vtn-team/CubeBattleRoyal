@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,16 +44,13 @@ public class Player : MonoBehaviour
 
     void Shot()
     {
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        BulletBase script = cube.AddComponent(_bullet.GetType()) as BulletBase;
-        cube.transform.position = this.transform.position + this.transform.forward * this.transform.localScale.z;
-        script.Bang();
+        ShotQueue.Instance.Enqueue(this.gameObject, _bullet.GetType());
     }
 
-    public void AssignBullet(BulletBase bullet)
+    public void AssignBullet(Type bullet)
     {
-        _bullet = bullet;
-        this.name = bullet.GetType().ToString();
+        _bullet = this.gameObject.AddComponent(bullet) as BulletBase;
+        this.name = bullet.ToString();
         gameObject.name = this.name;
     }
 

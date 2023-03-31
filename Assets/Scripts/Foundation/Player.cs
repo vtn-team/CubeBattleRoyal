@@ -10,8 +10,6 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour
 {
-    const int SHOT_INTERVAL = 10;
-    int _shotCount = 0;
     int _life = 10;
 
     [SerializeField] string name = "";
@@ -32,17 +30,8 @@ public class Player : MonoBehaviour
             }
         }
     }
-    void FixedUpdate()
-    {
-        _shotCount++;
-        if(_shotCount >= SHOT_INTERVAL)
-        {
-            Shot();
-            _shotCount = 0;
-        }
-    }
 
-    void Shot()
+    public void Shot()
     {
         ShotQueue.Instance.Enqueue(this.gameObject, _bullet.GetType());
     }

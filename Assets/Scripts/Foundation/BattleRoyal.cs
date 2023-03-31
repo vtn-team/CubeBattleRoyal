@@ -14,6 +14,9 @@ public class BattleRoyal : MonoBehaviour
     [SerializeField] Cinemachine.CinemachineTargetGroup _targetGroup;
     [SerializeField] List<BulletBase> _entry;
 
+    const int SHOT_INTERVAL = 10;
+    int _shotCount = 0;
+
     private void Awake()
     {
         //諸々設定
@@ -21,7 +24,7 @@ public class BattleRoyal : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    public void Start()
+    void Start()
     {
         int maxDiv = Mathf.Max(32, _entry.Count);
         for (int i=0; i< maxDiv; ++i)
@@ -43,6 +46,20 @@ public class BattleRoyal : MonoBehaviour
             {
                 player.AssignBullet(typeof(DefaultBullet));
             }
+        }
+    }
+
+    private void Update()
+    {
+        _shotCount++;
+        if (_shotCount >= SHOT_INTERVAL)
+        {
+            var list = GameObject.FindObjectsOfType<Player>();
+            foreach (var p in list)
+            {
+                p.Shot();
+            }
+            _shotCount = 0;
         }
     }
 }

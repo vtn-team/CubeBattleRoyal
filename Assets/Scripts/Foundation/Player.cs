@@ -11,9 +11,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     int _life = 10;
-
-    [SerializeField] string name = "";
-
     BulletBase _bullet;
 
     public int Life => _life;
@@ -36,11 +33,10 @@ public class Player : MonoBehaviour
         ShotQueue.Instance.Enqueue(this.gameObject, _bullet.GetType());
     }
 
-    public void AssignBullet(Type bullet)
+    public void AssignBullet(string entryName, Type bullet)
     {
         _bullet = this.gameObject.AddComponent(bullet) as BulletBase;
-        this.name = bullet.ToString();
-        gameObject.name = this.name;
+        gameObject.name = entryName;
     }
 
     public void Damage(int damage)

@@ -20,6 +20,7 @@ public class BattleRoyal : MonoBehaviour
     [SerializeField] GameObject _playerBase;
     [SerializeField] GameObject _namePlate;
     [SerializeField] GameObject _canvas;
+    [SerializeField] UnityEngine.UI.Text _nameList;
     [SerializeField] Cinemachine.CinemachineTargetGroup _targetGroup;
     [SerializeField] List<BulletEntry> _entry;
 
@@ -49,19 +50,19 @@ public class BattleRoyal : MonoBehaviour
 
             if (i < _entry.Count)
             {
-                GameObject namePlate = GameObject.Instantiate(_namePlate, position, rotation);
+                GameObject namePlate = GameObject.Instantiate(_namePlate, _canvas.transform);
                 NamePlate np = namePlate.GetComponent<NamePlate>();
                 np.Setup(playerObj, _entry[i].Mame);
 
-                player.AssignBullet(_entry[i].Bullet.GetType());
+                player.AssignBullet(_entry[i].Mame, _entry[i].Bullet.GetType());
             }
             else
             {
-                GameObject namePlate = GameObject.Instantiate(_namePlate, position, rotation);
+                GameObject namePlate = GameObject.Instantiate(_namePlate, _canvas.transform);
                 NamePlate np = namePlate.GetComponent<NamePlate>();
                 np.Setup(playerObj, "NPC");
 
-                player.AssignBullet(typeof(DefaultBullet));
+                player.AssignBullet("NPC", typeof(DefaultBullet));
             }
         }
     }
@@ -69,6 +70,8 @@ public class BattleRoyal : MonoBehaviour
     private void Update()
     {
         _shotCount++;
+
+        string nameList = "";
         if (_shotCount >= SHOT_INTERVAL)
         {
             var list = GameObject.FindObjectsOfType<Player>();
@@ -78,6 +81,13 @@ public class BattleRoyal : MonoBehaviour
             }
             _shotCount = 0;
         }
+
+        var plList = GameObject.FindObjectsOfType<Player>();
+        foreach (var p in plList)
+        {
+            nameList += p.name + "\n";
+        }
+        _nameList.text = nameList;
     }
 }
 

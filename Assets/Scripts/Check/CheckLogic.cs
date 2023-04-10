@@ -45,6 +45,8 @@ class CheckLogic : MonoBehaviour
                 if (_list[i].name == "cm") continue;
                 if (_list[i].name == "Main Camera") continue;
                 if (_list[i].name == "CM vcam1") continue;
+                if (_list[i].name == "Name(Clone)") continue;
+                if (_list[i].name == "NameText") continue;
 
                 //システムによる破壊
                 Debug.Log($"ルールにより{_list[i].name}を破壊します");

@@ -10,9 +10,18 @@ using UnityEngine;
 /// </summary>
 public class BattleRoyal : MonoBehaviour
 {
+    [Serializable]
+    class BulletEntry
+    {
+        public string Mame;
+        public BulletBase Bullet;
+    }
+
     [SerializeField] GameObject _playerBase;
+    [SerializeField] GameObject _namePlate;
+    [SerializeField] GameObject _canvas;
     [SerializeField] Cinemachine.CinemachineTargetGroup _targetGroup;
-    [SerializeField] List<BulletBase> _entry;
+    [SerializeField] List<BulletEntry> _entry;
 
     const int SHOT_INTERVAL = 10;
     int _shotCount = 0;
@@ -40,10 +49,18 @@ public class BattleRoyal : MonoBehaviour
 
             if (i < _entry.Count)
             {
-                player.AssignBullet(_entry[i].GetType());
+                GameObject namePlate = GameObject.Instantiate(_namePlate, position, rotation);
+                NamePlate np = namePlate.GetComponent<NamePlate>();
+                np.Setup(playerObj, _entry[i].Mame);
+
+                player.AssignBullet(_entry[i].Bullet.GetType());
             }
             else
             {
+                GameObject namePlate = GameObject.Instantiate(_namePlate, position, rotation);
+                NamePlate np = namePlate.GetComponent<NamePlate>();
+                np.Setup(playerObj, "NPC");
+
                 player.AssignBullet(typeof(DefaultBullet));
             }
         }

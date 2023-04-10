@@ -548,7 +548,33 @@ MonoBehaviour:
     type: 3}
   _targetGroup: {fileID: 1393116265}
   _entry:
-  - {fileID: 928507732682194818, guid: 0a2a00984f811034187e30e5efb4532d, type: 3}
+  - Mame: "\u8584\u8863\u3000\u6BC5"
+    Bullet: {fileID: 7483046752204284652, guid: cdcfa897d040e97469b9827bb63053e2,
+      type: 3}
+  - Mame: "\u7530\u6751\u3000\u82BD\u552F "
+    Bullet: {fileID: 8061142381129002258, guid: 87610435d4a1e694b9720a21d015a0a4,
+      type: 3}
+  - Mame: "\u4F50\u85E4 \u9F8D\u5E73 "
+    Bullet: {fileID: 2065813849012342627, guid: 4ea9e9d6e317ae64082f88b9f25a3053,
+      type: 3}
+  - Mame: "\u5927\u5BAE\u9F8D "
+    Bullet: {fileID: 6469890650876873394, guid: e4b35485763948f4c9f2fe81faed2146,
+      type: 3}
+  - Mame: "\u9AD8\u4E95 \u5065\u592A\u90CE "
+    Bullet: {fileID: 8897439605478434168, guid: f75b235f61061594bbe7aa053a72a81d,
+      type: 3}
+  - Mame: "\u4E0A\u7530 \u907C\u592A\u90CE "
+    Bullet: {fileID: -2750511507400481123, guid: f77d671de7bcdb74381a61c7da5bc488,
+      type: 3}
+  - Mame: "\u7D50\u57CE \u9ECE"
+    Bullet: {fileID: 3986038089124411371, guid: 7e776f5ab1aa4884891727111acde33a,
+      type: 3}
+  - Mame: "\u524D\u7530\u6DBC "
+    Bullet: {fileID: 5324607239573275604, guid: fe9da1d5f247687498837003dfa00c80,
+      type: 3}
+  - Mame: "\u6238\u6FA4\u6D77\u667A "
+    Bullet: {fileID: 6337934091061265875, guid: 036b0048a084c6d45bee6ce4b4350a77,
+      type: 3}
 --- !u!114 &646654675
 MonoBehaviour:
   m_ObjectHideFlags: 0

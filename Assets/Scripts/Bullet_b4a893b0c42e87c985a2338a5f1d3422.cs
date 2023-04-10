@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,8 +28,15 @@ public class Bullet_b4a893b0c42e87c985a2338a5f1d3422 : BulletBase
 
     void OnCollisionEnter(Collision collision)
     {
-        collision.gameObject.GetComponent<Rigidbody>().AddForce(2000000000, 2000000000, 2000000000, ForceMode.Impulse);
-        _hit = true;
-        //Logic.DamageToTarget(this.gameObject, collision.gameObject);
+        //エラーが起きたので対応しました。減点-1とします
+        try
+        {
+            collision.gameObject.GetComponent<Rigidbody>()?.AddForce(2000000000, 2000000000, 2000000000, ForceMode.Impulse);
+            _hit = true;
+            //Logic.DamageToTarget(this.gameObject, collision.gameObject);
+        }catch(Exception ex)
+        {
+            Debug.Log(ex);
+        }
     }
 }

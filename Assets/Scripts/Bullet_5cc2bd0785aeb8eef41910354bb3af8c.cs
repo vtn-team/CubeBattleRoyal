@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Experimental.GraphView.GraphView;
+//ビルドエラーが起きます。コードの本質ではなかったので減点-1としました
+//using static UnityEditor.Experimental.GraphView.GraphView;
 
 /// <summary>
 /// 課題用の弾処理
@@ -35,6 +36,8 @@ public class Bullet_5cc2bd0785aeb8eef41910354bb3af8c : BulletBase
 
     private void Start()
     {
+        //エラーが起きたので対応しました。進行はしたので減点-1とします。
+        if (_players.Count == 0) return;
         _player = _players[0].gameObject;
         _players.Remove(_players[0]);
 

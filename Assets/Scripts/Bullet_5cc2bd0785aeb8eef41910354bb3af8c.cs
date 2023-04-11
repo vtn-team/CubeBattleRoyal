@@ -53,7 +53,8 @@ public class Bullet_5cc2bd0785aeb8eef41910354bb3af8c : BulletBase
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player(Clone)")
+        //おそらく意図通りのコードにしました。減点-2とします
+        if (collision.gameObject.name != "Bullet_5cc2bd0785aeb8eef41910354bb3af8c")
         {
             _players.Add(collision.gameObject.transform);
             _players.Sort((a, b) => Vector3.Distance(transform.position, a.position).CompareTo(Vector3.Distance(transform.position, b.position)));    

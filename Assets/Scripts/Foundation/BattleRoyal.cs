@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 /// <summary>
 /// 起動時に実行されるコード
@@ -13,7 +14,7 @@ public class BattleRoyal : MonoBehaviour
     [Serializable]
     class BulletEntry
     {
-        public string Mame;
+        public string Name;
         public BulletBase Bullet;
     }
 
@@ -52,9 +53,9 @@ public class BattleRoyal : MonoBehaviour
             {
                 GameObject namePlate = GameObject.Instantiate(_namePlate, _canvas.transform);
                 NamePlate np = namePlate.GetComponent<NamePlate>();
-                np.Setup(playerObj, _entry[i].Mame);
+                np.Setup(playerObj, _entry[i].Name);
 
-                player.AssignBullet(_entry[i].Mame, _entry[i].Bullet.GetType());
+                player.AssignBullet(_entry[i].Name, _entry[i].Bullet.GetType());
             }
             else
             {
@@ -85,7 +86,15 @@ public class BattleRoyal : MonoBehaviour
         var plList = GameObject.FindObjectsOfType<Player>();
         foreach (var p in plList)
         {
-            nameList += p.name + "\n";
+            var entry = _entry.Where(b => b.Bullet.GetType().ToString() == p.name);
+            if(entry.Count() > 0)
+            {
+                nameList += entry.Single().Name + "\n";
+            }
+            else
+            {
+                nameList += p.name + "\n";
+            }
         }
         _nameList.text = nameList;
     }

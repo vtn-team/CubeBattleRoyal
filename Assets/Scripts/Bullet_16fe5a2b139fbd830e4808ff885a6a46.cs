@@ -32,7 +32,8 @@ public class Bullet_16fe5a2b139fbd830e4808ff885a6a46 : BulletBase
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name != "Bullet_大宮龍")
+        //もっといいやり方がありました。減点はしませんがBullet_1c4757ff3b82843618f69b1bd93c4679.csを見るといいと思います。
+        if (collision.gameObject.name != "Bullet_16fe5a2b139fbd830e4808ff885a6a46")
         Logic.DamageToTarget(this.gameObject, collision.gameObject);
     }
 }

@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     public void AssignBullet(string entryName, Type bullet)
     {
         _bullet = this.gameObject.AddComponent(bullet) as BulletBase;
-        gameObject.name = entryName;
+        gameObject.name = bullet.ToString();
     }
 
     public void Damage(int damage)

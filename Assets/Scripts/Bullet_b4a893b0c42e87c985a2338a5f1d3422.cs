@@ -28,7 +28,7 @@ public class Bullet_b4a893b0c42e87c985a2338a5f1d3422 : BulletBase
 
     void OnCollisionEnter(Collision collision)
     {
-        //エラーが起きたので対応しました。減点-1とします
+        //エラーが起きたので対応しました。進行はしたので失格ではありません。減点-1とします
         try
         {
             collision.gameObject.GetComponent<Rigidbody>()?.AddForce(2000000000, 2000000000, 2000000000, ForceMode.Impulse);
